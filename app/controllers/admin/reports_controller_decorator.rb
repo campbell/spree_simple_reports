@@ -1,10 +1,10 @@
-Admin::ReportsController.class_eval do
+Spree::Admin::ReportsController.class_eval do
 
   before_filter :kludge_simple 
   
   def kludge_simple
-    return if Admin::ReportsController::AVAILABLE_REPORTS.has_key?(:simple)
-    Admin::ReportsController::AVAILABLE_REPORTS.merge!({ :simple => {:name => "Simple", :description => "Simple reporting with options"}  })
+    return if Spree::Admin::ReportsController::AVAILABLE_REPORTS.has_key?(:simple)
+    Spree::Admin::ReportsController::AVAILABLE_REPORTS.merge!({ :simple => {:name => "Simple", :description => "Simple reporting with options"}  })
   end
 
   def simple
@@ -27,15 +27,15 @@ Admin::ReportsController.class_eval do
     search[:order_completed_at_is_not_null] = true
     search_on = case @group_by
       when "all"
-        LineItem
+        Spree::LineItem
       when "by_taxon"
-        LineItem.includes(:taxon)
+        Spree::LineItem.includes(:taxon)
       when "by_product"
-        LineItem
+        Spree::LineItem
       when "by_variant"
-        LineItem
+        Spree::LineItem
       else
-        LineItem.includes(:product => [:product_properties])
+        Spree::LineItem.includes(:product => [:product_properties])
       end
     @search = search_on.includes(:product).metasearch(search)
     @flot_options = { :series => {  :bars =>  { :show => true , :barWidth => @days * 24*60*60*1000 } , :stack => 0 } , 

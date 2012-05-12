@@ -42,7 +42,7 @@ Start with a year view by month, and group by say Taxon. As a result you see whi
 
 Say you thus found your strongest Taxons but want to break it down by whatever properties you use. We have e.g. Supplier. So enter the taxon name into the taxon field, and group by the property: Thus you find the best selling supplier in that taxon and you may wan to add a cross-sell for it, or an up-sell for similar product by other suppliers.
 
-Then you could add the supplier name to the property search field, and then group by Product. You then see the best selling Products of that Supplier in that Taxon, or if you remove the taxon name from the search, the best selling Products of that supplier.
+Then you could add the supplier name to the property search field, and then group by Spree::Product. You then see the best selling Products of that Supplier in that Taxon, or if you remove the taxon name from the search, the best selling Products of that supplier.
 
 In fact I often alternate between two properties. Search by one property, group by another and back and forth. 
 
@@ -75,7 +75,7 @@ Vague Plans exist to introduce also:
 
 - Reports about inventory
 - Reports about Order numbers
-- Grouing by customer
+- Grouping by customer
 
 
 Copyright (c) 2011 [Torsten Rüger], released under the New BSD License
