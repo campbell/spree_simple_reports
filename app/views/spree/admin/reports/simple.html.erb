@@ -16,47 +16,47 @@ $(function () {
 <div id="legend"> </div>
 <%content_for :sidebar do%>
 <div>
-  <%= form_for @search , :url => simple_admin_reports_url do |f| %>
+  <%= search_form_for @search , :url => simple_admin_reports_url do |f| %>
     <div class="box">
       <h3><%= t(:search) %></h3>
 
       <div data-hook="admin_products_index_search">
         <div class="left sub-field">
-          <%= f.label :name_like, t("name") %><br />
-          <%= f.text_field :variant_product_name_like, :size => 15 %>
+          <%= f.label :name_cont, t("name") %><br />
+          <%= f.text_field :variant_product_name_cont, :size => 15 %>
         </div>
         <div class="right sub-field">
-          <%= f.label :option_name_contains  %><br />
-          <%= f.text_field :variant_product_variants_option_values_name_contains, :size => 15 %>
+          <%= f.label :option_name_cont  %><br />
+          <%= f.text_field :variant_product_variants_option_values_name_cont, :size => 15 %>
         </div>
 
         <div class="left sub-field">
-          <%= f.label :taxons_name_contains  %><br />
-          <%= f.text_field :variant_product_taxons_name_contains, :size => 15 %>
+          <%= f.label :taxons_name_cont  %><br />
+          <%= f.text_field :variant_product_taxons_name_cont, :size => 15 %>
         </div>
         <div class="right sub-field">
           <%= f.label :properties_value  %><br />
-          <%= f.text_field :variant_product_product_properties_value_contains, :size => 15 %>
+          <%= f.text_field :variant_product_product_properties_value_cont, :size => 15 %>
         </div>
 
         <label> Price between </label> <br/>
         <div class="left sub-field">
-          <%= f.text_field :price_greater_than , :size => 6   %><br />
+          <%= f.text_field :price_gt , :size => 6   %><br />
           <label class="sub"><%= t("more_than") %></label>
         </div>
         <div class="right sub-field">
-          <%= f.text_field :price_less_than , :size => 6 %><br />
+          <%= f.text_field :price_lt , :size => 6 %><br />
           <label><%= t("less_than") %></label>
         </div>
 
         <label><%= t("date_range") %></label><br />
         <div class="date-range-filter">
           <div class="left sub-field">
-            <%= f.text_field :created_at_greater_than, :class => 'datepicker' %><br />
+            <%= f.text_field :created_at_gt, :class => 'datepicker' %><br />
             <label class="sub"><%= t("start") %></label>
           </div>
           <div class="right sub-field">
-            <%= f.text_field :created_at_less_than, :class => 'datepicker' %><br />
+            <%= f.text_field :created_at_lt, :class => 'datepicker' %><br />
             <label><%= t("stop") %></label>
           </div>
         </div>
@@ -68,9 +68,9 @@ $(function () {
           <%= t(:price)%> <%= radio_button_tag :price_or,  "total" , :total == @price_or %> 
           <%= t(:quantity)%> <%= radio_button_tag :price_or,  "quantity" , :quantity == @price_or %></p>
 
-        <%= button_tag( :name => 'period' , :value => :day ) do %> <span>Day</span> <%end%> 
         <%= button_tag( :name => 'period' , :value => :week ) do %> <span>Week</span> <%end%>
         <%= button_tag( :name => 'period' , :value => :month ) do %> <span>Month</span> <%end%>
+        <%= button_tag( :name => 'period' , :value => :day ) do %> <span>Day</span> <%end%> 
       </div>
 
     </div>
