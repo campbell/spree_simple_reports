@@ -78,4 +78,4 @@ Vague Plans exist to introduce also:
 - Grouping by customer
 
 
-Copyright (c) 2011 [Torsten Rüger], released under the New BSD License
+Copyright (c) 2011 [Torsten Ruger], released under the New BSD License
