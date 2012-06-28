@@ -1,0 +1,5 @@
+<%= "#{t(:order_date)};#{t(:order_number)};Alv 13;Alv 23;#{t(:customer)}"%>
+<% @orders.each do |order| %>
+<%= "#{order.created_at.to_date};#{order.number};#{order.alv13};#{order.alv23};#{order.name}" %>
+<% end %>
+
