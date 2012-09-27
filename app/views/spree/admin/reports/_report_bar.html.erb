@@ -1,0 +1,22 @@
+<%= form_for @search, :url => "/admin/reports/open_orders"  do |s| %>
+    <label><%= t("date_range") %></label><br />
+    <div class="yui-g date-range-filter">
+      <div class="yui-u sub-field first">
+        <%= s.text_field :created_at_gt , :class => 'datepicker'  %><br />
+        <label class="sub"><%= t("start") %></label>
+      </div>
+      <div class="yui-u sub-field">
+        <%= s.text_field :created_at_lt , :class => 'datepicker' %><br />
+        <label><%= t("stop") %></label>
+      </div>
+    </div>
+    <p>
+      <input type="checkbox" value="1" name="csv"  id="search_completed_at_not_null">
+      <label>
+        Reportina
+      </label>
+    </p>
+          
+
+    <p><%= button t("search") %></p>
+<% end %>
