@@ -73,14 +73,14 @@ Spree::Admin::ReportsController.class_eval do
     return "all" if @group_by == "all"
     case @group_by 
     when "by_taxon"
-        item.variant.product.taxons.first.blank? ? "none" : item.variant.product.taxons.first.name
+        item.variant.product.taxons.first.blank? ? "blank" : item.variant.product.taxons.first.name
     when "by_product"
         item.variant.product.name
     when "by_variant"
         item.variant.full_name
     else
       pps = item.variant.product.product_properties.detect{|p| p.property.name == @group_by}
-      pps ? pps.value : "none"
+      pps ? pps.value : "blank"
     end
   end
 
