@@ -1,4 +1,8 @@
 <% content_for :head do %>
+<script type="text/javascript" id="source">
+    var d =  <%== @flot_data.to_json %> ;
+</script>
+
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../excanvas.min.js"></script><![endif]-->
     <%= javascript_include_tag 'admin/jquery.flot.js' %>
     <%= javascript_include_tag 'admin/jquery.flot.stack.js' %>
@@ -6,9 +10,8 @@
 
     <div id="placeholder" style="width:800px;height:400px;"></div>
 
-<script id="source">
+<script type="text/javascript" id="source">
 $(function () {
-    var d =  <%== @flot_data.to_json %> ;
     $.plot($("#placeholder"), d , <%== @flot_options.to_json %>);
 });
 </script>
